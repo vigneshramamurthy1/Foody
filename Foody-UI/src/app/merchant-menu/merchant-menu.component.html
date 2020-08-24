@@ -1,0 +1,29 @@
+
+<div class="body">
+  <br><br>
+  <h1 align="center">FOODY | Menu</h1>
+  <br><br>
+
+<form name="form" #f="ngForm" novalidate class="feedback-form">
+    <div class="row">
+      <div class="card-deck" *ngFor="let m of model; let index=index">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top zoom" [src]="_DomSanitizationService.bypassSecurityTrustUrl(m.url)" style="height: 190px"/>
+          <div class="card-block">
+            <div class="card-body">
+              <h5 class="card-title" style="color: white">{{m.item}}</h5>
+              <p>Price : Rs.{{m.price}}</p>
+              <p> Quantity Available : {{m.quantity}}</p>
+              <input type="number" name="name+{{index}}" min="0" max="{{model[index].quantity}}" value="{{values[index].quantity}}" [(ngModel)]="values[index].quantity">
+              <button type="button" (click)="getUpdate(values[index].quantity, m.id)" class="col-md-12 btn btn-warning"><span>Update Quantity</span></button>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+
+  <br><br>
+    <button class="col-md-12 btn btn-warning" routerLink="/addItem"><span>Add Item</span></button>
+    <button routerLink="/home" type="button" class="col-md-12 btn btn-warning" (click)="clearLocal()"><span>Log Out</span></button>
+</form>
+</div>

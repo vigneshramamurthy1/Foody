@@ -1,0 +1,62 @@
+
+
+<form (ngSubmit)="onSubmit()">
+<div class="card align-contents">
+  <div class="body" align="center">
+    <h1>FOODY | New Items</h1>
+  </div>
+  <div class="table-responsive panel">
+    <table class="table">
+      <tbody>
+      <tr>
+        <td></td>
+        <td class="text-success" align="right"><i class="fa fa-user-circle"></i> Item Name</td>
+        <td><input placeholder="Item Name" type="text" minlength="2" maxlength="20"
+                   [(ngModel)]="newFoodItems.name" name="name" required="required"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="text-success" align="right"><i class="fa fa-mobile"></i> Price (INR)</td>
+        <td><input placeholder="Price" type="number"
+                   name="price" [(ngModel)]="newFoodItems.price" required="required" min="0"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="text-success" align="right"><i class="fa fa-envelope"></i> Available Quantity</td>
+        <td><input placeholder="Available Quantity" type="number"
+                   name="quantity" [(ngModel)]="newFoodItems.quantityAvailable" required="required" min="0"></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td></td>
+        <td class="text-success" align="right"><i class="fa fa-envelope"></i> Food Image</td>
+        <td><input type="file" (change)="onFileSelected($event)"></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td class="text-success" align="right"><i class="fa fa-envelope"></i> OR</td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td></td>
+        <td class="text-success" align="right"><i class="fa fa-envelope"></i> Food Image URL</td>
+        <td><input type="text" placeholder="Paste The Url" name="fileDataF" [(ngModel)]="newFoodItems.fileDataF"></td>
+        <td></td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+  </div>
+
+
+  <button class=" col-md-12 btn btn-warning" routerLink="/home" (click)="clearLocal()"><span>LogOut</span></button>
+  <button class=" col-md-12 btn btn-warning" routerLink="/merchantMenu"><span>Menu</span></button>
+  <button class=" col-md-12 btn btn-warning" type="submit"><span>AddItem</span></button>
+
+</form>
